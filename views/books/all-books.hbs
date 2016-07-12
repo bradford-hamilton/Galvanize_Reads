@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row">
+    {{#each books}}
+      <div class="col s12 m6 l4">
+        <div class="card small">
+          <div class="card-image">
+            <img src="{{this.cover_url}}">
+          </div>
+          <div class="card-content">
+            <h6 class='center'>{{this.title}}</h6>
+          </div>
+          <div class="card-action">
+            <a href="/books/{{this.id}}">More Info</a>
+          </div>
+        </div>
+      </div>
+      {{/each}}
+    </div>
+  <a href="/books/add" class="btn orange accent-4">Add a Book!</a>
+</div>
