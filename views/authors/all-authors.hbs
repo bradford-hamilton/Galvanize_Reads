@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row">
+    {{#each authors}}
+      <div class="col s12 m6 l4">
+        <div class="card small">
+          <div class="card-image">
+            <img src="{{this.portrait_url}}">
+          </div>
+          <div class="card-content">
+            <h6 class='center'>{{this.first_name}} {{this.last_name}}</h6>
+          </div>
+          <div class="card-action">
+            <a href="/authors/{{this.id}}">More Info</a>
+          </div>
+        </div>
+      </div>
+      {{/each}}
+    </div>
+  <a href="/authors/add" class="btn orange accent-4">Add an Author!</a>
+</div>

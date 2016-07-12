@@ -17,5 +17,20 @@ module.exports = {
       });
     }
 
+  },
+
+  Author: {
+
+    get: function(id) {
+      if (id) {
+        return Author.where({ id: id }).fetch({ withRelated: 'books' }).then(function(collection) {
+          return collection.toJSON();
+        });
+      }
+      return Author.forge().orderBy('first_name', 'ASC').fetchAll({ withRelated: 'books' }).then(function(collection) {
+        return collection.toJSON();
+      });
+    }
+
   }
 };
