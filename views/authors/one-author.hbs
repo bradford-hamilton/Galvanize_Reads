@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row">
+    <div class="col s12 m6 l6">
+      <br>
+      <img class="materialboxed img-for-single-item" data-caption="{{author.first_name}} {{author.last_name}}" src="{{author.portrait_url}}">
+    </div>
+    <br><br><br>
+    <div class="col s12 m5 offset-m1 l6">
+      <p>
+        {{author.bio}}
+      </p>
+      <ul>
+        <h5>Book(s): </h5>
+        {{#each author.books}}
+          <li>{{this.title}}</li>
+        {{/each}}
+      </ul>
+      <a href="/authors/edit/{{author.id}}" class="btn orange accent-4">Edit</a>
+    </div>
+  </div>
+</div>

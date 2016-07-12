@@ -13,5 +13,12 @@ router.get('/', function(request, response, next) {
   });
 });
 
+/* Single book more-info page */
+router.get('/:id', function(request, response, next) {
+  db.Book.get(request.params.id).then(function(book) {
+    console.log(book);
+    response.render('books/one-book', { book: book });
+  });
+});
 
 module.exports = router;

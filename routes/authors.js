@@ -13,5 +13,13 @@ router.get('/', function(request, response, next) {
   });
 });
 
+/* Single author more-info page */
+router.get('/:id', function(request, response, next) {
+  db.Author.get(request.params.id).then(function(author) {
+    console.log(author);
+    response.render('authors/one-author', { author: author });
+  });
+});
+
 
 module.exports = router;
