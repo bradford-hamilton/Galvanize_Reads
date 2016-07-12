@@ -15,6 +15,12 @@ module.exports = {
       return Book.forge().orderBy('title', 'ASC').fetchAll({ withRelated: 'authors' }).then(function(collection) {
         return collection.toJSON();
       });
+    },
+
+    update: function(id, body) {
+      return Book.forge({ id: id }).fetch().then(function(book) {
+        return book.save(body);
+      });
     }
 
   },
@@ -30,6 +36,12 @@ module.exports = {
       return Author.forge().orderBy('first_name', 'ASC').fetchAll({ withRelated: 'books' }).then(function(collection) {
         return collection.toJSON();
       });
+    },
+
+    update: function(id, body) {
+      return Author.forge({ id: id }).fetch().then(function(author) {
+        return author.save(body);
+      });
     }
 
   },
@@ -43,5 +55,5 @@ module.exports = {
       });
     });
   }
-  
+
 };

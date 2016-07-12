@@ -21,8 +21,21 @@ router.get('/add', function(request, response, next) {
 /* Single book more-info page */
 router.get('/:id', function(request, response, next) {
   db.Book.get(request.params.id).then(function(book) {
-    console.log(book);
     response.render('books/one-book', { book: book });
+  });
+});
+
+/* GET edit book page */
+router.get('/edit/:id', function(request, response, next) {
+  db.Book.get(request.params.id).then(function(book) {
+    response.render('books/edit-book', { book: book });
+  });
+});
+
+/* POST to update the book information */
+router.post('/edit/:id', function(request, response, next) {
+  db.Book.update(request.params.id, request.body).then(function() {
+    response.redirect('/books/' + request.params.id);
   });
 });
 
