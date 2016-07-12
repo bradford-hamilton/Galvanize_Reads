@@ -1,8 +1,38 @@
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  background-color: #ededed;
+}
+
+main {
+  flex: 1 0 auto;
 }
 
 a {
   color: #00B7FF;
+}
+
+.center {
+  text-align: center;
+}
+
+.books-card {
+  background-image: url('../images/books-home-img.jpg');
+  background-size: cover;
+}
+
+.authors-card {
+  background-image: url('../images/authors-home-img.jpg');
+  background-size: cover;
+}
+
+.card img {
+  height: 250px;
+}
+
+.img-for-single-item {
+  max-height: 400px;
+  max-width: 300px;
 }

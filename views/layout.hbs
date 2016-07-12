@@ -1,10 +1,57 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>{{title}}</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <meta charset="utf-8">
+    <title>Galvanize Reads</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
+    <link rel='stylesheet' href='/stylesheets/style.css'>
   </head>
   <body>
-    {{{body}}}
+    <header>
+      <nav class="deep-orange lighten-1" role="navigation">
+        <div class="nav-wrapper container"><a id="logo-container" href="/" class="brand-logo">Galvanize Reads</a>
+          <ul class="right hide-on-med-and-down">
+            <li><a href="/books">Books</a></li>
+            <li><a href="/authors">Authors</a></li>
+          </ul>
+          <!-- hamburger menu -->
+          <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+          <ul id="nav-mobile" class="side-nav">
+            <li><a href="/books">Books</a></li>
+            <li><a href="/authors">Authors</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      {{{body}}}
+    </main>
+
+    <footer class="page-footer deep-orange lighten-1">
+      <div class="container">
+        <div class="row">
+          <div class="col l6 s12">
+            <h6 class="grey-text text-lighten-4">Keep all your books in one place.</h6>
+          </div>
+          <div class="col l4 offset-l2 s12">
+            <ul>
+              <li><a class="grey-text text-lighten-3" href="#!"><h6>Github</h6></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-copyright">
+        <div class="container">
+        © 2016 Galvanize Reads --- Denver, CO
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
+    <script type="text/javascript" src="/javascripts/script.js"></script>
+
   </body>
 </html>
