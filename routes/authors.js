@@ -13,6 +13,11 @@ router.get('/', function(request, response, next) {
   });
 });
 
+/* Add an author page */
+router.get('/add', function(request, response, next) {
+  response.render('authors/add-author');
+});
+
 /* Single author more-info page */
 router.get('/:id', function(request, response, next) {
   db.Author.get(request.params.id).then(function(author) {

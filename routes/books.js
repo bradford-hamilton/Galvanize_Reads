@@ -13,6 +13,11 @@ router.get('/', function(request, response, next) {
   });
 });
 
+/* Add a book page */
+router.get('/add', function(request, response, next) {
+  response.render('books/add-book');
+});
+
 /* Single book more-info page */
 router.get('/:id', function(request, response, next) {
   db.Book.get(request.params.id).then(function(book) {
