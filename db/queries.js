@@ -21,6 +21,12 @@ module.exports = {
       return Book.forge({ id: id }).fetch().then(function(book) {
         return book.save(body);
       });
+    },
+
+    destroy: function(id) {
+      return Author_Book.where({ book_id: id }).destroy().then(function() {
+        return Book.where({ id: id }).destroy();
+      });
     }
 
   },
@@ -41,6 +47,12 @@ module.exports = {
     update: function(id, body) {
       return Author.forge({ id: id }).fetch().then(function(author) {
         return author.save(body);
+      });
+    },
+
+    destroy: function(id, book_id) {
+      return Author_Book.where({ author_id: id }).destroy().then(function() {
+        return Author.where({ id: id }).destroy();
       });
     }
 

@@ -27,7 +27,6 @@ router.get('/:id', function(request, response, next) {
 /* GET edit author page */
 router.get('/edit/:id', function(request, response, next) {
   db.Author.get(request.params.id).then(function(author) {
-    console.log(author);
     response.render('authors/edit-author', { author: author });
   });
 });
@@ -36,6 +35,13 @@ router.get('/edit/:id', function(request, response, next) {
 router.post('/edit/:id', function(request, response, next) {
   db.Author.update(request.params.id, request.body).then(function() {
     response.redirect('/authors/' + request.params.id);
+  });
+});
+
+/* DELETE author */
+router.post('/delete/:id', function(request, response, next) {
+  db.Author.destroy(request.params.id).then(function() {
+    response.redirect('/authors');
   });
 });
 

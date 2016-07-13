@@ -8,7 +8,6 @@ var Author_Book = require('../models/author_book');
 /* GET home page. */
 router.get('/', function(request, response, next) {
   db.Book.get().then(function(book) {
-    console.log(book);
     response.render('books/all-books', { books: book });
   });
 });
@@ -38,5 +37,13 @@ router.post('/edit/:id', function(request, response, next) {
     response.redirect('/books/' + request.params.id);
   });
 });
+
+/* DELETE books */
+router.post('/delete/:id', function(request, response, next) {
+  db.Book.destroy(request.params.id).then(function() {
+    response.redirect('/books');
+  });
+});
+
 
 module.exports = router;
