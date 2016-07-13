@@ -23,6 +23,10 @@ module.exports = {
       });
     },
 
+    insert: function(data) {
+      return Book.forge().save(data);
+    },
+
     destroy: function(id) {
       return Author_Book.where({ book_id: id }).destroy().then(function() {
         return Book.where({ id: id }).destroy();
@@ -50,6 +54,10 @@ module.exports = {
       });
     },
 
+    insert: function(data) {
+      return Author.forge().save(data);
+    },
+
     destroy: function(id, book_id) {
       return Author_Book.where({ author_id: id }).destroy().then(function() {
         return Author.where({ id: id }).destroy();
@@ -59,9 +67,9 @@ module.exports = {
   },
 
   Search: function (search) {
-    return Book.where('title', 'like', '%' + search + '%').fetchAll().then(function (book) {
+    return Book.where('title', 'ilike', '%' + search + '%').fetchAll().then(function (book) {
       var book = book ? book.toJSON() : null;
-      return Author.where('last_name', 'like', '%' + search + '%').fetchAll().then(function (author) {
+      return Author.where('first_name', 'ilike', '%' + search + '%').fetchAll().then(function (author) {
         var author = author ? author.toJSON() : null;
         return { book: book, author: author };
       });

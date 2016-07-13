@@ -31,6 +31,13 @@ router.get('/edit/:id', function(request, response, next) {
   });
 });
 
+/* POST to add an author */
+router.post('/add', function(request, response, next) {
+  db.Author.insert(request.body).then(function() {
+    response.redirect('/authors');
+  });
+});
+
 /* POST to update the author information */
 router.post('/edit/:id', function(request, response, next) {
   db.Author.update(request.params.id, request.body).then(function() {

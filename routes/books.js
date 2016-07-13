@@ -31,6 +31,13 @@ router.get('/edit/:id', function(request, response, next) {
   });
 });
 
+/* POST to add a book */
+router.post('/add', function(request, response, next) {
+  db.Book.insert(request.body).then(function() {
+    response.redirect('/books');
+  });
+});
+
 /* POST to update the book information */
 router.post('/edit/:id', function(request, response, next) {
   db.Book.update(request.params.id, request.body).then(function() {
