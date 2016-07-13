@@ -1,5 +1,8 @@
 <div class="container">
   <div class="row">
+    <br>
+    <h5>Edit {{book.title}}</h5>
+    <br>
     <form action="/books/edit/{{book.id}}" method="POST">
       <div class="input-field col s12 m9 l9">
         <label for='title'> Title </label>
@@ -19,6 +22,29 @@
       </div>
       <div class="col s12 m9 l9">
         <button type="submit" class="btn orange accent-4">Confirm Changes</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class='col s12 m9 l9'>
+      <br><br>
+      <h5>Add an Author</h5>
+    </div>
+    <form action="/books/add-author-to-book" method="POST">
+      <div class="input-field col s12 m9 l9">
+        <input type="hidden" name="book_id" value="{{book.id}}">
+        <select name="author_id">
+          <option value="" disabled selected>Choose your option</option>
+          {{#each author}}
+            <option value='{{this.id}}'>{{this.first_name}} {{this.last_name}}</option>
+          {{/each}}
+        </select>
+      </div>
+      <div class="col s12 m9 l9">
+        <button type="submit" class="btn orange accent-4">Add Author</button>
       </div>
     </form>
   </div>

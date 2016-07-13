@@ -66,6 +66,14 @@ module.exports = {
 
   },
 
+  Author_Book: {
+
+    insert: function (data) {
+      return Author_Book.forge().save(data);
+    }
+    
+  },
+
   Search: function (search) {
     return Book.where('title', 'ilike', '%' + search + '%').fetchAll().then(function (book) {
       var book = book ? book.toJSON() : null;

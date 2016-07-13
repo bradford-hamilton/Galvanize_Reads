@@ -27,7 +27,9 @@ router.get('/:id', function(request, response, next) {
 /* GET edit book page */
 router.get('/edit/:id', function(request, response, next) {
   db.Book.get(request.params.id).then(function(book) {
-    response.render('books/edit-book', { book: book });
+    db.Author.get().then(function(author) {
+      response.render('books/edit-book', { book: book, author: author });
+    });
   });
 });
 
@@ -42,6 +44,13 @@ router.post('/add', function(request, response, next) {
 router.post('/edit/:id', function(request, response, next) {
   db.Book.update(request.params.id, request.body).then(function() {
     response.redirect('/books/' + request.params.id);
+  });
+});
+
+/* Add author to book POST */
+router.post('/add-author-to-book', function(request, response, next) {
+  db.Author_Book.insert(request.body).then(function() {
+    response.redirect('/books');
   });
 });
 
