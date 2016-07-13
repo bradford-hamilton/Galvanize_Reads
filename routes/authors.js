@@ -8,7 +8,9 @@ var Author_Book = require('../models/author_book');
 /* GET home page. */
 router.get('/', function(request, response, next) {
   db.Author.get().then(function(author) {
-    response.render('authors/all-authors', { authors: author });
+    Author.count().then(function(count) {
+      response.render('authors/all-authors', { authors: author, count: count });
+    });
   });
 });
 

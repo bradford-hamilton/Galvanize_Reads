@@ -38,9 +38,16 @@ a {
   height: 250px;
 }
 
-.img-for-single-item {
+.img-for-single-book {
+  margin-top: 2rem;
   max-height: 400px;
   max-width: 300px;
+}
+
+.img-for-single-author {
+  margin-top: 3rem;
+  height: 300px;
+  width: 300px;
 }
 
 .name-delete-card {
