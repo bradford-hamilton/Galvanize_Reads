@@ -6,13 +6,14 @@
     </div>
     <br><br><br>
     <div class="col s12 m5 offset-m1 l6">
+      <h5>{{author.first_name}} {{author.last_name}}</h5>
       <p>
         {{author.bio}}
       </p>
       <ul>
         <h5>Book(s): </h5>
         {{#each author.books}}
-          <li>{{this.title}}</li>
+          <li><a href="/books/{{this.id}}">{{this.title}}</a></li>
         {{/each}}
       </ul>
       <a href="/authors/edit/{{author.id}}" class="btn orange accent-4">Edit</a>
