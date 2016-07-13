@@ -29,6 +29,30 @@
 
 <div class="container">
   <div class="row">
+    <div class="col s12 m6 l4">
+    <br><br>
+    <h5>{{author.first_name}} {{author.last_name}}'s Books</h5>
+      <ul>
+        {{#each author.books}}
+          <li>
+            <div class="card-panel light-blue accent-1">
+              <p class='name-delete-card'>
+                <a href='/authors/delete-book/{{../author.id}}/{{this.id}}/'>
+                  <i class='fa fa-remove delete-icon'></i>
+                </a>
+                {{this.title}}
+              </p>
+            </div>
+          </li>
+        {{/each}}
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+<div class="container">
+  <div class="row">
     <div class='col s12 m9 l9'>
       <br><br>
       <h5>Add a book to this Author</h5>
@@ -47,5 +71,11 @@
         <button type="submit" class="btn orange accent-4">Add Book</button>
       </div>
     </form>
+  </div>
+</div>
+<br><br><br><br><br><br>
+<div class="container">
+  <div class="row">
+    <a class="waves-effect green btn" href="/authors"><i class="material-icons left">arrow_back</i>Back to Books!</a>
   </div>
 </div>

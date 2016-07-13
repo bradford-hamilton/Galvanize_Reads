@@ -70,8 +70,12 @@ module.exports = {
 
     insert: function (data) {
       return Author_Book.forge().save(data);
+    },
+
+    destroy: function(bookId, authorId) {
+      return Author_Book.where({ book_id: bookId, author_id: authorId }).destroy();
     }
-    
+
   },
 
   Search: function (search) {

@@ -42,3 +42,15 @@ a {
   max-height: 400px;
   max-width: 300px;
 }
+
+.name-delete-card {
+  font-size: 1.3rem;
+}
+
+.delete-icon {
+  color: red;
+}
+
+.name-delete-card {
+  text-align: center;
+}

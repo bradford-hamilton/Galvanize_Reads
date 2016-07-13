@@ -33,6 +33,13 @@ router.get('/edit/:id', function(request, response, next) {
   });
 });
 
+/* Delete single author from book edit page */
+router.get('/delete-book/:authorId/:bookId', function(request, response, next) {
+  db.Author_Book.destroy(request.params.bookId, request.params.authorId).then(function() {
+    response.redirect('/authors/edit/' + request.params.authorId );
+  });
+});
+
 /* POST to add an author */
 router.post('/add', function(request, response, next) {
   db.Author.insert(request.body).then(function() {
