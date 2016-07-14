@@ -70,7 +70,7 @@ module.exports = {
           .orderBy('first_name', 'ASC')
           .fetchPage({
             pageSize: 6,
-            page: query.q,
+            page: query.page,
             withRelated: 'books'
         }).then(function(collection) {
           return collection.toJSON();

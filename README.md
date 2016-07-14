@@ -2,7 +2,7 @@
 
 An app for keeping all your books in one place!
 
-Link to live site  =>  placeHolder
+Link to live site  =>  https://galvanize-bookshelf.herokuapp.com/
 
 ## Installation for Development
 
