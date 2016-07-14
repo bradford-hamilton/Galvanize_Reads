@@ -7,9 +7,9 @@ var Author_Book = require('../models/author_book');
 
 /* GET home page. */
 router.get('/', function(request, response, next) {
-  db.Book.get().then(function(book) {
+  db.Book.get(null, request.query).then(function(book) {
     Book.count().then(function(count) {
-      response.render('books/all-books', { books: book, count: count });
+      response.render('books/all-books', { books: book, count: count, query: request.query });
     });
   });
 });
@@ -45,7 +45,7 @@ router.get('/delete-author/:bookId/:authorId', function(request, response, next)
 /* POST to add a book */
 router.post('/add', function(request, response, next) {
   db.Book.insert(request.body).then(function() {
-    response.redirect('/books');
+    response.redirect('/books?page=1');
   });
 });
 
@@ -66,7 +66,7 @@ router.post('/add-author-to-book', function(request, response, next) {
 /* DELETE books */
 router.post('/delete/:id', function(request, response, next) {
   db.Book.destroy(request.params.id).then(function() {
-    response.redirect('/books');
+    response.redirect('/books?page=1');
   });
 });
 
